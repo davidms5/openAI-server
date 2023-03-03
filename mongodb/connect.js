@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
-const connectDB = async () =>{
+const connectDB = async (url) =>{
   mongoose.set('strictQuery', true); //esta parte de codigo es para poder hacer consultas, posiblemente con regex
 
- await mongoose.connect(`${process.env.MONGODB_URL}`, {useNewUrlParser: true, useUnifiedTopology: true} )
+ await mongoose.connect(url, {useUnifiedTopology: true, useNewUrlParser: true} )
   .then(() => console.log('mongodb conectado'))
   .catch((err) => console.log(err))
 }
