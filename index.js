@@ -2,12 +2,13 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 
-dotenv.config();
+dotenv.config({path: 'back/config.env'});
+
 
 import connectDB from './mongodb/connect.js'
 
 const app = express();
-
+console.log(process.env.MONGODB_URL)
 app.use(cors());
 app.use(express.json({limit: '50mb'}));//en este caso ese limite es para las fotos que traiga dall-e
 
