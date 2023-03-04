@@ -1,13 +1,17 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import connectDB from './mongodb/connect.js'
+import connectDB from './mongodb/connect.js';
+import dalleRoutes from './routes/dalleRoutes';
+import postRoutes from './routes/postRoutes';
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json({limit: '50mb'}));//en este caso ese limite es para las fotos que traiga dall-e
 
+app.use('/api/v1/post', postRoutes);
+app.use('/api/v1/dalle', dalleRoutes);
 
 app.get('/', async(req, res) =>{
   res.send('hola mundo');
