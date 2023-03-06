@@ -2,8 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './mongodb/connect.js';
-import dalleRoutes from './routes/dalleRoutes';
-import postRoutes from './routes/postRoutes';
+import dalleRoutes from './routes/dalleRoutes.js';
+import postRoutes from './routes/postRoutes.js';
 dotenv.config();
 
 const app = express();
